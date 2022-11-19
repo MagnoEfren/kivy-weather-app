@@ -1,0 +1,270 @@
+
+#: import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+
+<MDUnoCard@MDCard>:
+    radius: dp(12)
+    spacing: dp(12)
+    id: ''
+    icon: ''
+    text: ''
+    sub_text: ''
+    md_bg_color: 103/255, 58/255,183/255,1
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDLabel:
+            id: root.id
+            halign: 'center'
+            text: root.text
+            font_size: dp(30)
+            font_name: 'fonts/Nunito.ttf'
+        MDIcon:
+            icon: root.icon
+            font_size: dp(40)
+            halign: 'center'
+        MDLabel:
+            halign: 'center'
+            text: root.sub_text
+            font_size: dp(20)
+            font_name: 'fonts/Nunito.ttf'
+
+<MDDosCard@MDCard>:
+    radius: [dp(12),dp(12),dp(12),dp(0)]
+    spacing: dp(12)
+    icon: ''
+    text: ''
+    sub_text: ''
+    md_bg_color: 103/255, 58/255,183/255,1
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDLabel:
+            halign: 'center'
+            text: root.text
+            font_size: dp(20)
+            font_name: 'fonts/Nunito.ttf'
+        MDLabel:
+            halign: 'center'
+            text: root.sub_text
+            font_size: dp(18)
+            font_name: 'fonts/Nunito.ttf'
+        MDIcon:
+            icon: root.icon
+            halign: 'center'
+
+<MDTresCard@MDCard>:
+    radius: [dp(30),dp(0),dp(30),dp(0)]
+    spacing: dp(12)
+    id: ''
+    icon: ''
+    text: ''
+    sub_text: ''
+    md_bg_color: 103/255, 58/255,183/255,1
+    MDBoxLayout:
+        orientation: 'horizontal'
+        MDLabel:
+            id: root.id
+            halign: 'center'
+            text: root.sub_text
+            font_size: dp(22)
+            font_name: 'fonts/Nunito.ttf'
+        MDLabel:
+            halign: 'center'
+            text: root.text
+            font_size: dp(30)
+            font_name: 'fonts/Nunito.ttf'
+        MDIcon:
+            icon: root.icon
+            halign: 'center'
+            font_size: dp(40)
+
+####################################################################
+<Ui>:
+    orientation: 'vertical'
+    ScreenManager:
+        id: scrn_mngr
+        transition: RiseInTransition()
+        MDScreen:
+            name: 'screen1'
+            md_bg_color:  7/255, 4/255,13/255,1
+            MDBoxLayout:
+                size_hint: 1,1
+                orientation: 'vertical'
+                MDBoxLayout:
+                    size_hint: 1,.2
+                    orientation: 'horizontal'
+                    padding: dp(30)
+                    spacing: dp(30)
+                    MDTextFieldRound:
+                        id: ciudad
+                        hint_text: "Ciudad"
+                        icon_left: "map-marker"
+                        font_size:dp(20)
+                        font_name: 'fonts/Nunito.ttf'
+                        foreground_color:1, 1, 1, 1
+                        icon_left_color: 103/255, 58/255,183/255,1
+                        normal_color: 7/255, 4/255,13/255,1
+                        color_active: 53/255, 30/255,98/255,1
+                    MDFloatingActionButton:
+                        icon: 'magnify'
+                        height: dp(12)
+                        pos_hint: {"center_y": .55}
+                        on_release: app.update_data()
+
+                MDGridLayout:
+                    size_hint: 1,.8
+                    cols: 2
+                    spacing: dp(12)
+                    padding: [dp(12),dp(12),dp(12),dp(12)]
+                    MDUnoCard:
+                        id: temperatura
+                        text:  '23 °C'
+                        sub_text: 'Temperatura'
+                        icon: 'weather-partly-cloudy'
+                    MDUnoCard:
+                        id: humedad
+                        text:  '82 %'
+                        sub_text: 'Humedad'
+                        icon: 'water-percent'
+                    MDUnoCard:
+                        id: viento
+                        text:  '14 Km/h'
+                        sub_text: 'Viento'
+                        icon: 'weather-windy'
+                    MDUnoCard:
+                        id: presion
+                        text:  '1091 hPa'
+                        sub_text: 'Presión'
+                        icon: 'weather-fog'
+        MDScreen:
+            name: 'screen2'
+            md_bg_color:  7/255, 4/255,13/255,1
+            MDBoxLayout:
+                size_hint: 1,1
+                orientation: 'vertical'
+                MDBoxLayout:
+                    size_hint: 1,.2
+                    MDLabel:
+                        text: 'Temperatura'
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        halign:'center'
+                        font_size: dp(28)
+                        font_name: 'fonts/CinzelDecorative.ttf'
+                MDGridLayout:
+                    size_hint: 1,.4
+                    cols: 7
+                    spacing: dp(12)
+                    padding: [dp(12),dp(12),dp(12),dp(12)]
+                    MDDosCard:
+                        text:  'D'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'L'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'M'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'M'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'J'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'V'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                    MDDosCard:
+                        text:  'S'
+                        sub_text: '20 °C'
+                        icon: 'weather-rainy'
+                MDGridLayout:
+                    size_hint: 1,.4
+                    cols: 1
+                    spacing: dp(12)
+                    padding: [dp(12),dp(12),dp(12),dp(12)]
+                    MDUnoCard:
+                        text: 'Clima'
+                        sub_text: '28 °C'
+                        icon: 'weather-rainy'
+        MDScreen:
+            name: 'screen3'
+            md_bg_color:  7/255, 4/255,13/255,1
+            MDBoxLayout:
+                size_hint: 1,1
+                orientation: 'vertical'
+                MDBoxLayout:
+                    size_hint: 1,.2
+                    orientation: 'horizontal'
+                    padding: dp(30)
+                    spacing: dp(30)
+                    MDLabel:
+                        text: 'Temperaturas'
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        halign:'center'
+                        font_size: dp(20)
+                        font_name: 'fonts/CinzelDecorative.ttf'
+                    MDFloatingActionButton:
+                        icon: 'update'
+                        height: dp(12)
+                        pos_hint: {"center_y": .55}
+                        on_release: app.get_data_city()
+                MDGridLayout:
+                    size_hint: 1,.8
+                    cols: 1
+                    spacing: dp(12)
+                    padding: [dp(12),dp(12),dp(12),dp(12)]
+                    MDTresCard:
+                        id: trujillo
+                        text:  '20 °C'
+                        sub_text: 'Trujillo'
+                        icon: 'weather-rainy'
+                    MDTresCard:
+                        id: lima
+                        text:  '23 °C'
+                        sub_text: 'Lima'
+                        icon: 'weather-rainy'
+                    MDTresCard:
+                        id: arequipa
+                        text:  '21 °C'
+                        sub_text: 'Arequipa'
+                        icon: 'weather-rainy'
+                    MDTresCard:
+                        id: cusco
+                        text:  '17 °C'
+                        sub_text: 'Cusco'
+                        icon: 'weather-rainy'
+    AnchorLayout:
+        size_hint_y: None
+        height: dp(100)
+        canvas.before:
+            Color:
+                rgba: 7/255, 4/255,13/255,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+			size_hint_x: 1
+            padding: [dp(12),dp(12),dp(12),dp(12)]
+
+            MDCard:
+                md_bg_color: 53/255, 30/255,98/255,1
+                padding: [dp(12),dp(12),dp(12),dp(12)]
+                radius: dp(12)
+                spacing: dp(20)
+                MDFloatingActionButton:
+                    icon: 'home'
+                    on_release: scrn_mngr.current = 'screen1'
+
+                MDFloatingActionButton:
+                    icon: 'chart-bar'
+                    on_release: scrn_mngr.current = 'screen2'
+
+                MDFloatingActionButton:
+                    icon: 'home-city'
+                    on_release: scrn_mngr.current = 'screen3'
