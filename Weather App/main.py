@@ -1,3 +1,5 @@
+# @autor: Magno Efren
+# Youtube: https://www.youtube.com/c/MagnoEfren
 
 from kivymd.app import MDApp
 from kivy.lang import Builder
