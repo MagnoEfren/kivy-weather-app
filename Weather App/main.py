@@ -1,6 +1,6 @@
 # @autor: Magno Efren
 # Youtube: https://www.youtube.com/c/MagnoEfren
-# Video para crear cuenta y obtener clave en la API OpenWeatherMap  
+# Video para crear cuenta y obtener clave en la API OpenWeatherMap  (La clave(Key) que se usa en el video se elimino)
 # https://youtu.be/fGRF7VODOOw
 
 from kivymd.app import MDApp
@@ -14,19 +14,16 @@ Window.size = (350, 580)
 class Ui(BoxLayout):
     pass
 
-
 class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "DeepPurple"
         Builder.load_file('design.kv')
-
         return Ui()
-
 
     def update_data(self):
         ciudad = self.root.ids.ciudad.text
-        API = 'https://api.openweathermap.org/data/2.5/weather?q=' +ciudad+ '&####################'  # usar su clave 
+        API = 'https://api.openweathermap.org/data/2.5/weather?q=' +ciudad+'&appid=(API Key) '  # usar su clave 
         self.req = UrlRequest(url=API, on_success= self.resultado)
 
 
@@ -51,16 +48,16 @@ class MainApp(MDApp):
     def get_data_city(self):
         for i in range(4):
             if i == 0:
-                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Trujillo'+'&####################'  # usar su clave 
+                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Trujillo'+'&appid=(API Key)'  # usar su clave  
                 self.req1 = UrlRequest(url=API, on_success= self.ciudad_uno)
             if i == 1:
-                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Arequipa'+'&####################'  # usar su clave 
+                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Arequipa'+'&appid=(API Key)'  # usar su clave 
                 self.req2 = UrlRequest(url=API, on_success= self.ciudad_dos)
             if i == 2:
-                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Lima'+'&####################'  # usar su clave 
+                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Lima'+'&appid=(API Key)'  # usar su clave 
                 self.req3 = UrlRequest(url=API, on_success= self.ciudad_tres)
             if i == 3:
-                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Cusco'+'&####################'  # usar su clave 
+                API = 'https://api.openweathermap.org/data/2.5/weather?q='+'Cusco'+'&appid=(API Key)'  # usar su clave 
                 self.req4 = UrlRequest(url=API, on_success= self.ciudad_cuatro)
 
     def ciudad_uno(self,*args):
